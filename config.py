@@ -6,7 +6,7 @@ load_dotenv(os.path.join(basedir, '.env'))
 TOP_LEVEL_DIR = os.path.abspath(os.curdir)
 
 
-class Config(object):
+class BaseConfig(object):
     DEBUG = False
     TESTING = False
     CSRF_ENABLED = True
@@ -16,19 +16,19 @@ class Config(object):
     BCRYPT_LOG_ROUNDS = 15
 
 
-class ProductionConfig(Config):
+class ProductionConfig(BaseConfig):
     DEBUG = False
 
 
-class StagingConfig(Config):
+class StagingConfig(BaseConfig):
     DEVELOPMENT = True
     DEBUG = True
 
 
-class DevelopmentConfig(Config):
+class DevelopmentConfig(BaseConfig):
     DEVELOPMENT = True
     DEBUG = True
 
 
-class TestingConfig(Config):
+class TestingConfig(BaseConfig):
     TESTING = True
