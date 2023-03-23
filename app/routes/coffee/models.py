@@ -1,5 +1,4 @@
 from app.ext.sqlalchemy import db
-# from app.ext.sqlalchemy.models import BaseModel
 from sqlalchemy_utils import ChoiceType
 
 
