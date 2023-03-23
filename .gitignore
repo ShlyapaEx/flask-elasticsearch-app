@@ -140,3 +140,5 @@ alembic.ini
 data/
 
 .idea
+
+.vscode
