@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 load_dotenv(os.path.join(basedir, '.env'))
 TOP_LEVEL_DIR = os.path.abspath(os.curdir)
@@ -14,6 +15,10 @@ class BaseConfig(object):
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     BCRYPT_LOG_ROUNDS = 15
+    ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
+    ELASTICSEARCH_LOGIN = os.environ.get('ELASTICSEARCH_LOGIN')
+    ELASTICSEARCH_PASSWORD = os.environ.get('ELASTICSEARCH_PASSWORD')
+    PATH_TO_CA_CERT = os.environ.get('PATH_TO_CA_CERT')
 
 
 class ProductionConfig(BaseConfig):
@@ -28,6 +33,7 @@ class StagingConfig(BaseConfig):
 class DevelopmentConfig(BaseConfig):
     DEVELOPMENT = True
     DEBUG = True
+    SQLALCHEMY_ECHO = True
 
 
 class TestingConfig(BaseConfig):
