@@ -1,0 +1,15 @@
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+{% if 'error' == category %}
+<div class="notification is-danger is-light">{{message}}</div>
+{% endif %}
+
+{% if 'message' == category %}
+<div class="notification is-success is-light">{{message}}</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endwith %}
+

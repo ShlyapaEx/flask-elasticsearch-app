@@ -1,0 +1,16 @@
+{% extends 'base.jinja2' %}
+
+{% block content %}
+
+    <h1>{% block title %} Add New Country :) {% endblock %}</h1>
+    <form method="post">
+        {% include 'messages.jinja2' %}
+        <label for="title">New Country Name</label>
+        <br>
+        <input type="text" name="name"
+               placeholder="Put it here!"
+               value="{{ request.form['name'] }}"></input>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
