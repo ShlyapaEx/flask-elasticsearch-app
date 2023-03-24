@@ -1,6 +1,8 @@
 from flask import Flask
 from .countries.views import countries
 from .commons.views import files
+
+
 BLUEPRINT_LIST = (countries, files)
 
 
