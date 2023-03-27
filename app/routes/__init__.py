@@ -1,9 +1,9 @@
 from flask import Flask
 from .countries.views import countries
-from .commons.views import files
+from .coffee.views import coffees
 
 
-BLUEPRINT_LIST = (countries, files)
+BLUEPRINT_LIST = (countries, coffees)
 
 
 def register_blueprints(app: Flask) -> None:

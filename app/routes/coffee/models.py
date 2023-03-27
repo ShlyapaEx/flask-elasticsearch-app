@@ -1,13 +1,15 @@
-from app.ext.sqlalchemy import db
 from sqlalchemy_utils import ChoiceType
 
+from app.ext.elastic.models import SearchableMixin
+from app.ext.sqlalchemy import db
 
-class Coffee(db.Model):
-    SPECIES = [('arabica', 'Arabica'),
-               ('robusta', 'Robusta')]
+
+class Coffee(SearchableMixin, db.Model):
+    __searchable__ = ['owner', 'number_of_bags', 'grading_date',
+                      'aroma', 'certification_body']
 
     id = db.Column(db.Integer, primary_key=True)
-    species = db.Column(ChoiceType(SPECIES))
+    species = db.Column(db.String)
     owner = db.Column(db.String)
     country_of_origin = db.Column(db.ForeignKey('country.id',
                                                 ondelete='SET NULL'))
