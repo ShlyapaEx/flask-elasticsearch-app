@@ -28,7 +28,7 @@ def add_new_country():
             db.session.add(new_country)
             db.session.commit()
             flash('Success!', 'message')
-    return render_template('coffee_creation.jinja2')
+    return render_template('country_creation.jinja2')
 
 
 @countries.route('/countries/reindex', methods=['get'])

@@ -4,7 +4,7 @@
 
     <h1>{% block title %} Add New Country :) {% endblock %}</h1>
     <form method="post">
-        {% include 'messages.jinja2' %}
+        <div> {% include 'messages.jinja2' %} </div>
         <label for="title">New Country Name</label>
         <br>
         <input type="text" name="name"
