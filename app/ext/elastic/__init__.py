@@ -12,5 +12,10 @@ def init_elasticsearch(app: Flask):
                                                      app.config['ELASTICSEARCH_PASSWORD']),                                  # make sure we verify SSL certificates
                                           verify_certs=True,
                                           ssl_context=context)
+        try:
+            app.elasticsearch.info()
+        except ConnectionError as err:
+            print(err)
+            raise ConnectionError from err
     else:
         app.elasticsearch = None
