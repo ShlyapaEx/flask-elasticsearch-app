@@ -1,6 +1,5 @@
 from app.ext.sqlalchemy import db
-from .full_text_search import (add_to_index, remove_from_index,
-                               query_index)
+from .full_text_search import add_to_index, remove_from_index, query_index
 
 
 class SearchableMixin(object):
